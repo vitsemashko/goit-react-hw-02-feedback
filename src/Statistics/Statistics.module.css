@@ -1,11 +1,13 @@
 .feedbackList {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .feedbackListItem {
-	display: flex;
-	align-items: left;
-	font-size: 2.5rem;
-	padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  font-size: 2.5rem;
+  padding: 0.5rem;
 }
