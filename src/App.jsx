@@ -1,22 +1,18 @@
-import React from 'react';
-import Statistics from './Statistics/Statistics';
-import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
-import Section from './Section/Section';
-import Notification from './Notification/Notification';
+import { Component } from 'react';
+import Statistics from './components/Statistics/Statistics';
+import FeedbackOptions from './components/FeedbackOptions/FeedbackOptions';
+import Section from './components/Section/Section';
+import Notification from './components/Notification/Notification';
 import './App.css';
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.onLeaveFeedback = this.onLeaveFeedback.bind(this);
-  }
+export default class App extends Component {
   state = {
     good: 0,
     neutral: 0,
     bad: 0,
   };
   options = ['Good', 'Neutral', 'Bad'];
-  onLeaveFeedback(e) {
+  onLeaveFeedback = e => {
     switch (e) {
       case 'Good':
         this.setState({ good: this.state.good + 1 });
@@ -30,7 +26,7 @@ export default class App extends React.Component {
       default:
         return;
     }
-  }
+  };
   countTotalFeedback() {
     return this.state.good + this.state.neutral + this.state.bad;
   }
