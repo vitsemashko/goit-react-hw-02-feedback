@@ -11,16 +11,15 @@ export default class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  options = ['Good', 'Neutral', 'Bad'];
   onLeaveFeedback = e => {
     switch (e) {
-      case 'Good':
+      case 'good':
         this.setState({ good: this.state.good + 1 });
         break;
-      case 'Neutral':
+      case 'neutral':
         this.setState({ neutral: this.state.neutral + 1 });
         break;
-      case 'Bad':
+      case 'bad':
         this.setState({ bad: this.state.bad + 1 });
         break;
       default:
@@ -38,7 +37,7 @@ export default class App extends Component {
       <div>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={this.options}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>

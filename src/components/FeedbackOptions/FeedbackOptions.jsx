@@ -1,7 +1,11 @@
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <div className={css.feedbackContainer}>
       {options.map(option => {
@@ -12,7 +16,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
             onClick={() => onLeaveFeedback(option)}
             key={option}
           >
-            {option}
+            {capitalizeFirstLetter(option)}
           </button>
         );
       })}
@@ -20,7 +24,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   );
 };
 FeedbackOptions.propTypes = {
-  options: propTypes.arrayOf(propTypes.string).isRequired,
-  onLeaveFeedback: propTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };
 export default FeedbackOptions;
